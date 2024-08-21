@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="my-card mt-3">
+						<div class="text-center">
+							<img src="" style="height: 200px; width: 200px;"
+								class="my_profile_picture" th:src="@{'/img/pngegg.png'}"
+								alt="profile_photo" />
+						</div>
+						<br>
+						<h1 class="text-center text-secondary font-italic">Start
+							Adding Your Contact On Cloud</h1>
+						<hr>
+						<p class=" font-italic justify-content-center align-items-center">Smart
+							contact manager is a program that enables users to easily store
+							and find contact information, such as names, emails, and
+							telephone numbers providing a fully integrated approach to
+							tracking and storing all information linked to contacts.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

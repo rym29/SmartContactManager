@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="my-card mt-3">
+
+						<h2 class="text-center">
+							<span th:text="${user.name}"></span>
+						</h2>
+						<hr>
+
+
+						<table class="table">
+							<thead class="text-center">
+								<tr>
+									<th scope="col">User Id</th>
+									<th scope="col"><span th:text="${user.id}"></span></th>
+								</tr>
+							</thead>
+							<tbody class="text-center">
+								<tr>
+									<th scope="row">Name</th>
+									<td scope="row"><span th:text="${user.name}"></span></td>
+								</tr>
+								<tr>
+									<th scope="col">Phone</th>
+									<td scope="row"><span th:text="${user.phone}"></span></td>
+								</tr>
+								<tr>
+									<th scope="col">Email</th>
+									<td scope="row"><span th:text="${user.email}"></span></td>
+								</tr>
+								<tr>
+									<th scope="col">Role</th>
+									<td scope="row"><span th:text="${user.role}"></span></td>
+								</tr>
+								<tr>
+									<th scope="col">Account Active</th>
+									<td scope="row"><span th:text="${user.enabled}"></span></td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

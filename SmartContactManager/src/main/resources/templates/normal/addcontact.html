@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="my-card mt-3">
+
+						<div th:if="${session.message}"
+							th:classappend="${session.message.type}" class="alert"
+							role="alert">
+							<p th:text="${session.message.content}"></p>
+							<th:block th:text="${@messageHelper.remove()}"></th:block>
+						</div>
+
+						<h2 class="text-center">Add Contact</h2>
+						<form action="#" th:action="@{/user/process-contact}"
+							method="post" th:object="${contact}">
+							<hr>
+
+							<br>
+
+							<!-- name field-->
+							<div class="mb-3">
+
+								<input name="name" type="text" class="form-control"
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
+									id="name1" aria-describedby="nameHelp"
+									placeholder="Enter First Name" required="required"
+									th:value="${contact.name}" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+
+							<div class="mb-3">
+								<input name="secondName" type="text" class="form-control"
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
+									id="name2" aria-describedby="nameHelp"
+									placeholder="Enter Last Name" th:value="${contact.secondName}" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+
+							<!-- email field-->
+							<div class="mb-3">
+								<input name="email" type="email" class="form-control"
+									id="exampleInputEmail1" required="required"
+									th:value="${contact.email}" placeholder="Enter Email"
+									aria-describedby="emailHelp" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('email')}" th:text="${e}"></div>
+							</div>
+
+							<!-- Phone field-->
+							<div class="mb-3">
+								<input type="tel" id="phone" name="phone" class="form-control"
+									pattern="[0-9]{10}" required="required"
+									th:value="${contact.phone}" placeholder="Enter Phone Number" />
+							</div>
+
+							<!-- Work field-->
+							<div class="mb-3">
+								<input name="work" type="text" class="form-control"
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
+									id="name3" aria-describedby="nameHelp"
+									placeholder="Enter Work Details" required="required"
+									th:value="${contact.work}" />
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+							<br>
+							<button type="submit" class="btn bg-primary text-white btn-sm">Save
+								Contact</button>
+							<button type="reset" class="btn bg-warning text-white btn-sm">Reset</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
